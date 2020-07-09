@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask File Manager (Like a browser FTP)</title>
+</head>
+<body>
+
+<p>Root dir: {{ root_dir }}</p>
+
+{% for file in files %}
+
+    {{ file }}<br>
+
+{% endfor %}
+
+</body>
+</html>

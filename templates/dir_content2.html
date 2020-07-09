@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ ls }}</title>
+
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 3px;
+    }
+    tr:nth-child(even) {background-color: #fcfcfc;}
+    /*tr:nth-child(even) {background-color: #ff0000;}*/
+    </style>
+
+</head>
+<body>
+
+GET_FILE/DIR_INFO {{ ls }}<br>
+
+<div style="overflow-x:auto;">
+
+{% if dirs|length > 1 %}
+<h2>Directories:</h2>
+    <table id="directories">
+        <thead>
+            <tr>
+                    {% for key, value in dirs[0].items() %}
+                        {% if key != 'link' and key != 'type' %}
+                            <th>{{ key }}</th>
+                        {% endif %}
+                    {% endfor %}
+                    <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set key_dir_order = ['name', 'access', 'modified', 'changed', 'size', 'files inside'] %}
+
+        {% for next_dict in dirs %}
+            <tr>
+                {% for next_key in key_dir_order %}
+                    <td>{{ next_dict[next_key] }}</td>
+                {% endfor %}
+
+                {% set href = next_dict['link'] %}
+                <td>
+                    <a href="/ls?dir={{ href }}">>>></a>
+                    <a href="/upload?dir={{ href }}">upload</a>
+                    <a href="/zip?dir={{ href }}">zip</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <b>No directories included</b>
+{% endif %}
+
+{% if files|length > 1 %}
+<h2>Files:</h2>
+<table id="files">
+    <thead>
+    <tr>
+            {% for key, value in files[0].items() %}
+                {% if key != 'link' and key != 'type' %}
+                    <td>{{ key }}</td>
+                {% endif %}
+            {% endfor %}
+            <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for next_dict in files %}
+        <tr>
+            {% for key, value in next_dict.items() %}
+                {% if key != 'link' and key != 'type' %}
+                    <td>{{ value }}</td>
+                {% endif %}
+            {% endfor %}
+            <td>
+                {% set href = next_dict['link'] %}
+                <a href="/ace?f={{ href }}">ace</a>
+                <a href="/hex?f={{ href }}">hex</a>
+                <a href="/zip?f={{ href }}">zip</a>
+                <a href="/download?f={{ href }}">save</a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <b>No files included</b>
+{% endif %}
+
+</div>
+
+</body>
+</html>

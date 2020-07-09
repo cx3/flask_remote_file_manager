@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+GET_FILE/DIR_INFO {{ result['ls'] }}<br>
+
+<table>
+{% for next_dict in result['items'] %}
+    <tr>
+        {% for next_key in next_dict %}
+            {% if 'edit' in next_key or 'download' in next_key or 'browse' in next_key or 'zip' in next_key %}
+                <td><a href="{{ next_dict[next_key] }}">{{ next_key }}</a></td>
+            {% else %}
+                <td>{{ next_key }}: <b>{{ next_dict[next_key] }}</b></td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>

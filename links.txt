@@ -1,0 +1,6 @@
+https://xtermjs.org/
+https://flask.palletsprojects.com/en/1.1.x/patterns/jquery/
+https://stackoverflow.com/questions/19295746/how-to-upload-multiple-files-using-php-jquery-and-ajax
+https://stackoverflow.com/questions/45777770/catch-all-routes-for-flask
+
+https://api.jquery.com/jquery.post/

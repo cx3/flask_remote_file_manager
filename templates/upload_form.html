@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Upload new File to <b>{{ dest_dir }}</b></h1>
+
+<input type="button" id="pickDirs" value="Other destination">
+
+    <form method="POST" enctype="multipart/form-data">
+
+      <input type="hidden" name="dir" value="{{ dest_dir }}">
+
+      <input type="file" name="file">
+      <input type="submit" value="Upload">
+    </form>
+
+</body>
+</html>

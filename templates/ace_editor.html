@@ -1,0 +1,384 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.10.1.js"></script>
+    <style>
+        #editor {
+            position: absolute;
+            height:90%;//800px;
+            width:90%;//800px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="row">
+
+        <div class="col" style="float:left;">
+
+            <select id="mode" size="1">
+                <option value="ace/mode/abap">abap</option>
+                <option value="ace/mode/actionscript">actionscript</option>
+                <option value="ace/mode/ada">ada</option>
+                <option value="ace/mode/asciidoc">asciidoc</option>
+                <option value="ace/mode/assembly_x86">assembly_x86</option>
+                <option value="ace/mode/autohotkey">autohotkey</option>
+                <option value="ace/mode/batchfile">batchfile</option>
+                <option value="ace/mode/c9search">c9search</option>
+                <option value="ace/mode/c_cpp">c_cpp</option>
+                <option value="ace/mode/clojure">clojure</option>
+                <option value="ace/mode/cobol">cobol</option>
+                <option value="ace/mode/coffee">coffee</option>
+                <option value="ace/mode/coldfusion">coldfusion</option>
+                <option value="ace/mode/csharp">csharp</option>
+                <option value="ace/mode/css">css</option>
+                <option value="ace/mode/curly">curly</option>
+                <option value="ace/mode/d">d</option>
+                <option value="ace/mode/dart">dart</option>
+                <option value="ace/mode/diff">diff</option>
+                <option value="ace/mode/django">django</option>
+                <option value="ace/mode/dot">dot</option>
+                <option value="ace/mode/ejs">ejs</option>
+                <option value="ace/mode/erlang">erlang</option>
+                <option value="ace/mode/forth">forth</option>
+                <option value="ace/mode/ftl">ftl</option>
+                <option value="ace/mode/glsl">glsl</option>
+                <option value="ace/mode/golang">golang</option>
+                <option value="ace/mode/groovy">groovy</option>
+                <option value="ace/mode/haml">haml</option>
+                <option value="ace/mode/handlebars">handlebars</option>
+                <option value="ace/mode/haskell">haskell</option>
+                <option value="ace/mode/haxe">haxe</option>
+                <option value="ace/mode/html">html</option>
+                <option value="ace/mode/html_ruby">html_ruby</option>
+                <option value="ace/mode/ini">ini</option>
+                <option value="ace/mode/jade">jade</option>
+                <option value="ace/mode/java">java</option>
+                <option value="ace/mode/javascript" selected>javascript</option>
+                <option value="ace/mode/json">json</option>
+                <option value="ace/mode/jsoniq">jsoniq</option>
+                <option value="ace/mode/jsp">jsp</option>
+                <option value="ace/mode/jsx">jsx</option>
+                <option value="ace/mode/julia">julia</option>
+                <option value="ace/mode/latex">latex</option>
+                <option value="ace/mode/less">less</option>
+                <option value="ace/mode/liquid">liquid</option>
+                <option value="ace/mode/lisp">lisp</option>
+                <option value="ace/mode/livescript">livescript</option>
+                <option value="ace/mode/logiql">logiql</option>
+                <option value="ace/mode/lsl">lsl</option>
+                <option value="ace/mode/lua">lua</option>
+                <option value="ace/mode/luapage">luapage</option>
+                <option value="ace/mode/lucene">lucene</option>
+                <option value="ace/mode/makefile">makefile</option>
+                <option value="ace/mode/markdown">markdown</option>
+                <option value="ace/mode/matlab">matlab</option>
+                <option value="ace/mode/mushcode">mushcode</option>
+                <option value="ace/mode/mushcode_high_rules">mushcode_high_rules</option>
+                <option value="ace/mode/mysql">mysql</option>
+                <option value="ace/mode/objectivec">objectivec</option>
+                <option value="ace/mode/ocaml">ocaml</option>
+                <option value="ace/mode/pascal">pascal</option>
+                <option value="ace/mode/perl">perl</option>
+                <option value="ace/mode/pgsql">pgsql</option>
+                <option value="ace/mode/php">php</option>
+                <option value="ace/mode/powershell">powershell</option>
+                <option value="ace/mode/prolog">prolog</option>
+                <option value="ace/mode/properties">properties</option>
+                <option value="ace/mode/python">python</option>
+                <option value="ace/mode/r">r</option>
+                <option value="ace/mode/rdoc">rdoc</option>
+                <option value="ace/mode/rhtml">rhtml</option>
+                <option value="ace/mode/ruby">ruby</option>
+                <option value="ace/mode/rust">rust</option>
+                <option value="ace/mode/sass">sass</option>
+                <option value="ace/mode/scad">scad</option>
+                <option value="ace/mode/scala">scala</option>
+                <option value="ace/mode/scheme">scheme</option>
+                <option value="ace/mode/scss">scss</option>
+                <option value="ace/mode/sh">sh</option>
+                <option value="ace/mode/snippets">snippets</option>
+                <option value="ace/mode/sql">sql</option>
+                <option value="ace/mode/stylus">stylus</option>
+                <option value="ace/mode/svg">svg</option>
+                <option value="ace/mode/tcl">tcl</option>
+                <option value="ace/mode/tex">tex</option>
+                <option value="ace/mode/text">text</option>
+                <option value="ace/mode/textile">textile</option>
+                <option value="ace/mode/toml">toml</option>
+                <option value="ace/mode/twig">twig</option>
+                <option value="ace/mode/typescript">typescript</option>
+                <option value="ace/mode/vbscript">vbscript</option>
+                <option value="ace/mode/velocity">velocity</option>
+                <option value="ace/mode/verilog">verilog</option>
+                <option value="ace/mode/xml">xml</option>
+                <option value="ace/mode/xquery">xquery</option>
+                <option value="ace/mode/yaml">yaml</option>
+            </select>
+
+
+            <select id="dirs_files" onselect="javascript:dirs_files_selected()">
+                {% for item in dirs %}
+                    <option value="{{ item }}">{{ item }}</option> %}
+                {% endfor %}
+
+                {% if dirs|length > 0 %}
+                    <option value="-------">-----</option>
+                {% endif %}
+
+            	{% for item in files %}
+            		<option value="{{ item }}">{{ item }}</option> %}
+            	{% endfor%}
+            </select>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-secondary" id="saveFileButton">Zapisz</button>
+        </div>
+
+        <div class="col">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Tytul" aria-label="Tytul" aria-describedby="basic-addon1" name="articleTitle">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="editor" class="container">
+    </div>
+
+
+
+    <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+var encoding = '{{ encoding }}';
+
+function decode_base64 (s) {
+    var e = {}, i, k, v = [], r = '', w = String.fromCharCode;
+    var n = [[65, 91], [97, 123], [48, 58], [43, 44], [47, 48]];
+
+    for (z in n)
+    {
+        for (i = n[z][0]; i < n[z][1]; i++)
+        {
+            v.push(w(i));
+        }
+    }
+    for (i = 0; i < 64; i++)
+    {
+        e[v[i]] = i;
+    }
+
+    for (i = 0; i < s.length; i+=72)
+    {
+        var b = 0, c, x, l = 0, o = s.substring(i, i+72);
+        for (x = 0; x < o.length; x++)
+        {
+            c = e[o.charAt(x)];
+            b = (b << 6) + c;
+            l += 6;
+            while (l >= 8)
+            {
+                r += w((b >>> (l -= 8)) % 256);
+            }
+         }
+    }
+    return r;
+}
+
+
+var Base64 = {
+//https://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript
+    // private property
+    _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+    // public method for encoding
+    encode : function (input) {
+        var output = "";
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        input = Base64._utf8_encode(input);
+
+        while (i < input.length) {
+
+            chr1 = input.charCodeAt(i++);
+            chr2 = input.charCodeAt(i++);
+            chr3 = input.charCodeAt(i++);
+
+            enc1 = chr1 >> 2;
+            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+            enc4 = chr3 & 63;
+
+            if (isNaN(chr2)) {
+                enc3 = enc4 = 64;
+            } else if (isNaN(chr3)) {
+                enc4 = 64;
+            }
+
+            output = output +
+            this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+            this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+        }
+        return output;
+    },
+
+    // public method for decoding
+    decode : function (input) {
+        var output = "";
+        var chr1, chr2, chr3;
+        var enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+        while (i < input.length) {
+
+            enc1 = this._keyStr.indexOf(input.charAt(i++));
+            enc2 = this._keyStr.indexOf(input.charAt(i++));
+            enc3 = this._keyStr.indexOf(input.charAt(i++));
+            enc4 = this._keyStr.indexOf(input.charAt(i++));
+
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+
+            output = output + String.fromCharCode(chr1);
+
+            if (enc3 != 64) {
+                output = output + String.fromCharCode(chr2);
+            }
+            if (enc4 != 64) {
+                output = output + String.fromCharCode(chr3);
+            }
+        }
+        output = Base64._utf8_decode(output);
+        return output;
+    },
+
+    // private method for UTF-8 encoding
+    _utf8_encode : function (string) {
+        string = string.replace(/\r\n/g,"\n");
+        var utftext = "";
+
+        for (var n = 0; n < string.length; n++) {
+            var c = string.charCodeAt(n);
+            if (c < 128) {
+                utftext += String.fromCharCode(c);
+            }
+            else if((c > 127) && (c < 2048)) {
+                utftext += String.fromCharCode((c >> 6) | 192);
+                utftext += String.fromCharCode((c & 63) | 128);
+            }
+            else {
+                utftext += String.fromCharCode((c >> 12) | 224);
+                utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                utftext += String.fromCharCode((c & 63) | 128);
+            }
+        }
+        return utftext;
+    },
+
+    // private method for UTF-8 decoding
+    _utf8_decode : function (utftext) {
+        var string = "";
+        var i = 0;
+        var c = c1 = c2 = 0;
+
+        while ( i < utftext.length ) {
+            c = utftext.charCodeAt(i);
+            if (c < 128) {
+                string += String.fromCharCode(c);
+                i++;
+            }
+            else if((c > 191) && (c < 224)) {
+                c2 = utftext.charCodeAt(i+1);
+                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                i += 2;
+            }
+            else {
+                c2 = utftext.charCodeAt(i+1);
+                c3 = utftext.charCodeAt(i+2);
+                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                i += 3;
+            }
+        }
+        return string;
+    }
+}
+
+
+
+
+        {% if data %}
+           var b64 = decode_base64('{{data}}');
+        {% else %}
+           var b64 = '';
+        {% endif %}
+
+
+        var editor = ace.edit("editor");
+        editor.getSession().setUseWorker(false);
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/javascript");
+
+        $('#mode').on('change', function (ev) {
+            var mode = $('option:selected').attr('value');
+            //console.log(mode)
+            editor.getSession().setMode(mode);
+        });
+
+        editor.setValue(b64);
+        console.log('data from server: ' + b64);
+
+    var files = [];
+
+        function getFiles() {
+            console.log('klik');
+            $.get( "/ls", function( data ) {
+                    //$( ".result" ).html( data );
+                    
+            });
+
+            let xhr = new XMLHttpRequest();
+
+            //typ połączenia, url, czy połączenie asynchroniczne
+            xhr.open("GET", "/ls?dir=c:\\proj\\py", true);
+
+            //wysyłamy połączenie
+            console.log('log:'+xhr.send());
+        }
+
+
+        $('articles').on('click', getFiles() );
+
+        function dirs_files_selected() {
+
+        }
+
+        $('#saveFileButton').on('click', function(ev) {
+            var editor_content = Base64.encode(editor.getSession().getValue());
+            console.log('data:' + editor_content);
+            $.ajax({
+                type: "POST",
+                url: '{{ action }}&content=' + editor_content + '&encoding=' + encoding,
+                data: '',
+                success: alert('Done!'),
+                fail: alert('FAIL!!!'),
+                dataType: "text/plain"
+            });
+        } );
+
+    </script>
+
+
+
+    </body>
+</html>

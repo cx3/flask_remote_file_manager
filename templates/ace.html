@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        #editor {
+    position: absolute;
+    /*width: 1000px;
+    height: 700px;*/
+}
+    </style>
+
+</head>
+<body>
+
+<div id="editor">
+
+</div>
+<script src="/ace/ace.js" type="text/javascript" charset="utf-8">
+
+
+    {% if data %}
+        var b64 = new Buffer({{ data }}, 'base64').toString();
+    {% else %}
+        var b64 = "";
+    {% endif %}
+
+    console.log('b64 from server: ' + b64);
+
+
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    editor.session.setMode(new JavaScriptMode());
+</script>
+
+
+
+
+</body>
+</html>
